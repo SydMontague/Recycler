@@ -1,285 +1,323 @@
 # General options
-disableHopper: true
-preventZeroOutput: true
+general:
+  # prevents hoppers and droppers from putting recyclable items into furnaces
+  disableHopper: true 
 
-# Items
-bucket:
-  id: BUCKET
-  rewardid: IRON_INGOT
-  rewardamount: 3
-  maxdura: 0
-  extradura: 0
-  calcdura: false
-diamond_pickaxe:
-  id: DIAMOND_PICKAXE
-  rewardid: DIAMOND
-  rewardamount: 3
-  maxdura: 1562
-  extradura: 0
-  calcdura: true
-diamond_axe:
-  id: DIAMOND_AXE
-  rewardid: DIAMOND
-  rewardamount: 3
-  maxdura: 1562
-  extradura: 0
-  calcdura: true
-diamond_spade:
-  id: DIAMOND_SPADE
-  rewardid: DIAMOND
-  rewardamount: 1
-  maxdura: 1562
-  extradura: 0
-  calcdura: true
-diamond_sword:
-  id: DIAMOND_SWORD
-  rewardid: DIAMOND
-  rewardamount: 2
-  maxdura: 1562
-  extradura: 0
-  calcdura: true
-diamond_hoe:
-  id: DIAMOND_HOE
-  rewardid: DIAMOND
-  rewardamount: 2
-  maxdura: 1562
-  extradura: 0
-  calcdura: true
-iron_hoe:
-  id: IRON_HOE
-  rewardid: IRON_INGOT
-  rewardamount: 2
-  maxdura: 251
-  extradura: 0
-  calcdura: true
-iron_axe:
-  id: IRON_AXE
-  rewardid: IRON_INGOT
-  rewardamount: 3
-  maxdura: 251
-  extradura: 0
-  calcdura: true
-iron_spade:
-  id: IRON_SPADE
-  rewardid: IRON_INGOT
-  rewardamount: 1
-  maxdura: 251
-  extradura: 0
-  calcdura: true
-iron_sword:
-  id: IRON_SWORD
-  rewardid: IRON_INGOT
-  rewardamount: 2
-  maxdura: 251
-  extradura: 0
-  calcdura: true
-iron_pickaxe:
-  id: IRON_PICKAXE
-  rewardid: IRON_INGOT
-  rewardamount: 3
-  maxdura: 251
-  extradura: 0
-  calcdura: true
-gold_pickaxe:
-  id: GOLD_PICKAXE
-  rewardid: GOLD_INGOT
-  rewardamount: 3
-  maxdura: 33
-  extradura: 0
-  calcdura: true
-gold_axe:
-  id: GOLD_AXE
-  rewardid: GOLD_INGOT
-  rewardamount: 3
-  maxdura: 33
-  extradura: 0
-  calcdura: true
-gold_spade:
-  id: GOLD_SPADE
-  rewardid: GOLD_INGOT
-  rewardamount: 1
-  maxdura: 33
-  extradura: 0
-  calcdura: true
-gold_sword:
-  id: GOLD_SWORD
-  rewardid: GOLD_INGOT
-  rewardamount: 2
-  maxdura: 33
-  extradura: 0
-  calcdura: true
-gold_hoe:
-  id: GOLD_HOE
-  rewardid: GOLD_INGOT
-  rewardamount: 2
-  maxdura: 33
-  extradura: 0
-  calcdura: true
-gold_helmet:
-  id: GOLD_HELMET
-  rewardid: GOLD_INGOT
-  rewardamount: 5
-  maxdura: 78
-  extradura: 0
-  calcdura: true
-gold_chest:
-  id: GOLD_CHESTPLATE
-  rewardid: GOLD_INGOT
-  rewardamount: 8
-  maxdura: 113
-  extradura: 0
-  calcdura: true
-gold_leggings:
-  id: GOLD_LEGGINGS
-  rewardid: GOLD_INGOT
-  rewardamount: 7
-  maxdura: 106
-  extradura: 0
-  calcdura: true
-gold_boots:
-  id: GOLD_BOOTS
-  rewardid: GOLD_INGOT
-  rewardamount: 4
-  maxdura: 92
-  extradura: 0
-  calcdura: true
-iron_helmet:
-  id: IRON_HELMET
-  rewardid: IRON_INGOT
-  rewardamount: 5
-  maxdura: 166
-  extradura: 0
-  calcdura: true
-iron_chestplate:
-  id: IRON_CHESTPLATE
-  rewardid: IRON_INGOT
-  rewardamount: 8
-  maxdura: 241
-  extradura: 0
-  calcdura: true
-iron_leggings:
-  id: IRON_LEGGINGS
-  rewardid: IRON_INGOT
-  rewardamount: 7
-  maxdura: 226
-  extradura: 0
-  calcdura: true
-iron_boots:
-  id: IRON_BOOTS
-  rewardid: IRON_INGOT
-  rewardamount: 4
-  maxdura: 192
-  extradura: 0
-  calcdura: true
-diamond_helmet:
-  id: DIAMOND_HELMET
-  rewardid: DIAMOND
-  rewardamount: 5
-  maxdura: 364
-  extradura: 0
-  calcdura: true
-diamond_chestplate:
-  id: DIAMOND_CHESTPLATE
-  rewardid: DIAMOND
-  rewardamount: 8
-  maxdura: 529
-  extradura: 0
-  calcdura: true
-diamond_leggings:
-  id: DIAMOND_LEGGINGS
-  rewardid: DIAMOND
-  rewardamount: 7
-  maxdura: 496
-  extradura: 0
-  calcdura: true
-diamond_boots:
-  id: DIAMOND_BOOTS
-  rewardid: DIAMOND
-  rewardamount: 4
-  maxdura: 430
-  extradura: 0
-  calcdura: true
-shears:
-  id: SHEARS
-  rewardid: IRON_INGOT
-  rewardamount: 2
-  maxdura: 238
-  extradura: 0
-  calcdura: true
-minecart:
-  id: MINECART
-  rewardid: IRON_INGOT
-  rewardamount: 5
-  maxdura: 0
-  extradura: 0
-  calcdura: false
-compass:
-  id: COMPASS
-  rewardid: IRON_INGOT
-  rewardamount: 4
-  maxdura: 0
-  extradura: 0
-  calcdura: false
-watch:
-  id: WATCH
-  rewardid: GOLD_INGOT
-  rewardamount: 4
-  maxdura: 0
-  extradura: 0
-  calcdura: false
-irondoor:
-  id: IRON_DOOR
-  rewardid: IRON_INGOT
-  rewardamount: 6
-  maxdura: 0
-  extradura: 0
-  calcdura: false
-hopper:
-  id: HOPPER
-  rewardid: IRON_INGOT
-  rewardamount: 5
-  maxdura: 0
-  extradura: 0
-  calcdura: false
-cauldron:
-  id: CAULDRON_ITEM
-  rewardid: IRON_INGOT
-  rewardamount: 7
-  maxdura: 0
-  extradura: 0
-  calcdura: false
-flint_and_steel:
-  id: FLINT_AND_STEEL
-  rewardid: IRON_INGOT
-  rewardamount: 1
-  maxdura: 65
-  extradura: 0
-  calcdura: true
-powered_rail:
-  id: POWERED_RAIL
-  rewardid: GOLD_INGOT
-  rewardamount: 1
-  maxdura: 0
-  extradura: 0
-  calcdura: false
-detector_rail:
-  id: DETECTOR_RAIL
-  rewardid: IRON_INGOT
-  rewardamount: 1
-  maxdura: 0
-  extradura: 0
-  calcdura: false
-gold_plate:
-  id: GOLD_PLATE
-  rewardid: GOLD_INGOT
-  rewardamount: 2
-  extradura: 0
-  calcdura: false
-  maxdura: 0
-iron_plate:
-  id: IRON_PLATE
-  rewardid: IRON_INGOT
-  rewardamount: 2
-  extradura: 0
-  calcdura: false
-  maxdura: 0
+# Recipes
+#
+#  diamond_pickaxe:         # unique key, can be anything
+#    input: DIAMOND_PICKAXE # Material to smelt, for names see https://hub.spigotmc.org/stash/projects/SPIGOT/repos/bukkit/browse/src/main/java/org/bukkit/Material.java
+#    result: DIAMOND        # Smelting result item
+#    resultamount: 3        # number of result items per smelted input
+#    extradura: 0           # extra durability for amount calculation
+#    calcdura: true         # whether the resulting amount should be calculated based on item damage, formula: rewardamount * (input.maxDurability + extradura - input.damage) / input.maxDurability
+#    burntime: 100          # the time the item burn in the oven in ticks (1/20th seconds)
+recipes:
+  diamond_pickaxe:
+    input: DIAMOND_PICKAXE
+    result: DIAMOND
+    resultamount: 3
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  diamond_axe:
+    input: DIAMOND_AXE
+    result: DIAMOND
+    resultamount: 3
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  diamond_shovel:
+    input: DIAMOND_SHOVEL
+    result: DIAMOND
+    resultamount: 1
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  diamond_sword:
+    input: DIAMOND_SWORD
+    result: DIAMOND
+    resultamount: 2
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  diamond_hoe:
+    input: DIAMOND_HOE
+    result: DIAMOND
+    resultamount: 2
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  diamond_helmet:
+    input: DIAMOND_HELMET
+    result: DIAMOND
+    resultamount: 5
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  diamond_chestplate:
+    input: DIAMOND_CHESTPLATE
+    result: DIAMOND
+    resultamount: 8
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  diamond_leggings:
+    input: DIAMOND_LEGGINGS
+    result: DIAMOND
+    resultamount: 7
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  diamond_boots:
+    input: DIAMOND_BOOTS
+    result: DIAMOND
+    resultamount: 4
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  activator_rail:
+    input: ACTIVATOR_RAIL
+    result: IRON_INGOT
+    resultamount: 1
+    extradura: 0
+    calcdura: 0
+    burntime: 100
+  bucket:
+    input: BUCKET
+    result: IRON_INGOT
+    resultamount: 3
+    extradura: 0
+    calcdura: false
+    burntime: 100
+  cauldron:
+    input: CAULDRON
+    result: IRON_INGOT
+    resultamount: 7
+    extradura: 0
+    calcdura: false
+    burntime: 100
+  compass:
+    input: COMPASS
+    result: IRON_INGOT
+    resultamount: 4
+    extradura: 0
+    calcdura: false
+    burntime: 100
+  detector_rail:
+    input: DETECTOR_RAIL
+    result: IRON_INGOT
+    resultamount: 1
+    extradura: 0
+    calcdura: false
+    burntime: 100
+  flint_and_steel:
+    input: FLINT_AND_STEEL
+    result: IRON_INGOT
+    resultamount: 1
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  iron_pressure_plate:
+    input: HEAVY_WEIGHTED_PRESSURE_PLATE
+    result: IRON_INGOT
+    resultamount: 2
+    extradura: 0
+    calcdura: false
+    burntime: 100
+  hopper:
+    input: HOPPER
+    result: IRON_INGOT
+    resultamount: 5
+    extradura: 0
+    calcdura: false
+    burntime: 100
+  iron_trapdoor:
+    input: IRON_TRAPDOOR
+    result: IRON_INGOT
+    resultamount: 4
+    extradura: 0
+    calcdura: false
+    burntime: 100
+  iron_door:
+    input: IRON_DOOR
+    result: IRON_INGOT
+    resultamount: 2
+    extradura: 0
+    calcdura: false
+    burntime: 100
+  iron_bars:
+    input: IRON_BARS
+    result: IRON_NUGGET
+    resultamount: 3
+    extradura: 0
+    calcdura: false
+    burntime: 100
+  iron_helmet:
+    input: IRON_HELMET
+    result: IRON_INGOT
+    resultamount: 5
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  iron_chestplate:
+    input: IRON_CHESTPLATE
+    result: IRON_INGOT
+    resultamount: 8
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  iron_leggings:
+    input: IRON_LEGGINGS
+    result: IRON_INGOT
+    resultamount: 7
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  iron_boots:
+    input: IRON_BOOTS
+    result: IRON_INGOT
+    resultamount: 4
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  shears:
+    input: SHEARS
+    result: IRON_INGOT
+    resultamount: 2
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  minecart:
+    input: MINECART
+    result: IRON_INGOT
+    resultamount: 5
+    extradura: 0
+    calcdura: false
+    burntime: 100
+  rails:
+    input: RAIL
+    result: IRON_NUGGET
+    resultamount: 3
+    extradura: 0
+    calcdura: false
+    burntime: 100
+  iron_hoe:
+    input: IRON_HOE
+    result: IRON_INGOT
+    resultamount: 2
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  iron_axe:
+    input: IRON_AXE
+    result: IRON_INGOT
+    resultamount: 3
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  iron_spade:
+    input: IRON_SHOVEL
+    result: IRON_NUGGET
+    resultamount: 9
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  iron_sword:
+    input: IRON_SWORD
+    result: IRON_INGOT
+    resultamount: 2
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  iron_pickaxe:
+    input: IRON_PICKAXE
+    result: IRON_INGOT
+    resultamount: 3
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  gold_pickaxe:
+    input: GOLDEN_PICKAXE
+    result: GOLD_INGOT
+    resultamount: 3
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  gold_axe:
+    input: GOLDEN_AXE
+    result: GOLD_INGOT
+    resultamount: 3
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  gold_spade:
+    input: GOLDEN_SHOVEL
+    result: GOLD_NUGGET
+    resultamount: 9
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  gold_sword:
+    input: GOLDEN_SWORD
+    result: GOLD_INGOT
+    resultamount: 2
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  gold_hoe:
+    input: GOLDEN_HOE
+    result: GOLD_INGOT
+    resultamount: 2
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  gold_helmet:
+    input: GOLDEN_HELMET
+    result: GOLD_INGOT
+    resultamount: 5
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  gold_chest:
+    input: GOLDEN_CHESTPLATE
+    result: GOLD_INGOT
+    resultamount: 8
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  gold_leggings:
+    input: GOLDEN_LEGGINGS
+    result: GOLD_INGOT
+    resultamount: 7
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  gold_boots:
+    input: GOLDEN_BOOTS
+    result: GOLD_INGOT
+    resultamount: 4
+    extradura: 0
+    calcdura: true
+    burntime: 100
+  watch:
+    input: CLOCK
+    result: GOLD_INGOT
+    resultamount: 4
+    extradura: 0
+    calcdura: false
+    burntime: 100
+  powered_rail:
+    input: POWERED_RAIL
+    result: GOLD_INGOT
+    resultamount: 1
+    extradura: 0
+    calcdura: false
+    burntime: 100
+  gold_plate:
+    input: LIGHT_WEIGHTED_PRESSURE_PLATE
+    result: GOLD_INGOT
+    resultamount: 2
+    extradura: 0
+    calcdura: false
+    burntime: 100

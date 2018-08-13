@@ -2,6 +2,7 @@ name: Recycler
 main: de.craftlancer.recycler.Recycler
 version: ${project.version}
 description: Recycle your useless stuff!
+api-version: 1.13
 commands:
     recycler:
         description: reloads config

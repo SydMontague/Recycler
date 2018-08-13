@@ -1,127 +1,121 @@
 package de.craftlancer.recycler;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
+import java.util.EnumMap;
+import java.util.Iterator;
+import java.util.Map;
 
+import org.bukkit.Keyed;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.inventory.FurnaceRecipe;
-import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.Recipe;
 import org.bukkit.permissions.Permission;
 import org.bukkit.permissions.PermissionDefault;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import org.mcstats.Metrics;
-
-public class Recycler extends JavaPlugin
-{
+public class Recycler extends JavaPlugin {
+    private static final String INPUT = "input";
+    private static final String RESULT = "result";
+    private static final String RESULT_AMOUNT = "resultamount";
+    private static final String EXTRA_DURABILITY = "extradura";
+    private static final String CALCULATE_DURA = "calcdura";
+    private static final String BURNTIME = "burntime";
+    
     public static final Permission WILDCARD_PERMISSION = new Permission("recycler.item.*", PermissionDefault.FALSE);
     
-    //used to let MC know, that a recipe accepts all data 
-    //this is implementation specific and may cause problems in older or future versions!
+    // used to let MC know, that a recipe accepts all data
+    // this is implementation specific and may cause problems in older or future versions!
     public static final int MATCH_ALL_DATA = 32767;
     
-    private HashMap<Material, Recycleable> map = new HashMap<Material, Recycleable>();
-    private FileConfiguration config;
+    private Map<Material, Recyclable> map = new EnumMap<>(Material.class);
     private boolean preventHoppers = true;
-    private boolean preventZeroOutput = true;
     
     @Override
-    public void onEnable()
-    {
+    public void onEnable() {
         loadConfig();
         getServer().getPluginManager().addPermission(WILDCARD_PERMISSION);
         getServer().getPluginManager().registerEvents(new RecyclerListener(this), this);
-        
-        try
-        {
-            Metrics metrics = new Metrics(this);
-            metrics.start();
-        }
-        catch (IOException e)
-        {
-        }
     }
     
     @Override
-    public void onDisable()
-    {
+    public void onDisable() {
         map.clear();
-        config = null;
-        getServer().getScheduler().cancelTasks(this);
     }
     
-    @SuppressWarnings("deprecation")
-    private void loadConfig()
-    {
+    private void loadConfig() {
         if (!new File(getDataFolder().getPath(), "config.yml").exists())
             saveDefaultConfig();
         
         reloadConfig();
         
-        config = getConfig();
+        FileConfiguration config = getConfig();
+        ConfigurationSection recipesConfig = config.getConfigurationSection("recipes");
         map.clear();
         
-        preventZeroOutput = config.getBoolean("preventZeroOutput", true);
-        preventHoppers = config.getBoolean("disableHopper", true);
+        preventHoppers = config.getBoolean("general.disableHopper", true);
         
-        for (String key : config.getKeys(false))
-            if (!key.equals("disableHopper") && !key.equals("preventZeroOutput"))
-            {
-                Material inputType = Material.matchMaterial(config.getString(key + ".id"));
-                Material rewardType = Material.matchMaterial(config.getString(key + ".rewardid"));
-                int amount = config.getInt(key + ".rewardamount", 0);
-                int maxdura = config.getInt(key + ".maxdura", 0);
-                int extradura = config.getInt(key + ".extradura", 0);
-                boolean calcdura = config.getBoolean(key + ".calcdura", true);
-                
-                if (inputType == null)
-                    getLogger().warning("Invalid Material: " + config.getString(key + ".id"));
-                else if (rewardType == null)
-                    getLogger().warning("Invalid Material: " + config.getString(key + ".rewardid"));
-                else if (map.put(inputType, new Recycleable(inputType, rewardType, amount, maxdura, extradura, calcdura)) != null)
-                    getLogger().warning("You have 2 configs for " + inputType.name() + "! Using the last one.");
-            }
+        for (String key : recipesConfig.getKeys(false)) {
+            ConfigurationSection recipeConfig = recipesConfig.getConfigurationSection(key);
+            
+            Material inputType = Material.matchMaterial(recipeConfig.getString(INPUT));
+            Material rewardType = Material.matchMaterial(recipeConfig.getString(RESULT));
+            int amount = recipeConfig.getInt(RESULT_AMOUNT, 0);
+            int extradura = recipeConfig.getInt(EXTRA_DURABILITY, 0);
+            boolean calcdura = recipeConfig.getBoolean(CALCULATE_DURA, true);
+            int burntime = recipeConfig.getInt(BURNTIME, 200);
+            
+            if (inputType == null)
+                getLogger().warning(() -> "Invalid Material: " + recipeConfig.getString(INPUT));
+            else if (rewardType == null)
+                getLogger().warning(() -> "Invalid Material: " + recipeConfig.getString(RESULT));
+            else if (map.put(inputType, new Recyclable(inputType, rewardType, amount, extradura, calcdura, burntime)) != null)
+                getLogger().warning(() -> "You have 2 configs for " + inputType.name() + "! Using the last one.");
+        }
         
-        getLogger().info(map.size() + " recycleables loaded.");
-        
-        for (Recycleable rec : map.values())
-            getServer().addRecipe(new FurnaceRecipe(new ItemStack(rec.getRewardType()), rec.getInputType(), MATCH_ALL_DATA));
+        for (Recyclable rec : map.values())
+            if (!getServer().addRecipe(rec.toFurnaceRecipe(this)))
+                getLogger().warning("Failed to add Recipe for " + rec.getInputType());
+            
+        getLogger().info(() -> map.size() + " recyclables loaded.");
     }
     
-    public boolean isZeroOutputDisabled()
-    {
-        return preventZeroOutput;
-    }
-    
-    public boolean isHopperDisabled()
-    {
+    public boolean isHopperDisabled() {
         return preventHoppers;
     }
     
-    public HashMap<Material, Recycleable> getRecyleMap()
-    {
+    public Map<Material, Recyclable> getRecyleMap() {
         return map;
     }
     
-    public boolean hasRecycleable(Material mat)
-    {
+    public boolean hasRecycleable(Material mat) {
         return map.containsKey(mat);
     }
     
-    public Recycleable getRecycleable(Material mat)
-    {
+    public Recyclable getRecycleable(Material mat) {
         return map.get(mat);
     }
     
     @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args)
-    {
-        if (sender.hasPermission("recycler.admin"))
-            loadConfig();
+    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+        if (!sender.hasPermission("recycler.admin"))
+            return false;
+        
+        // remove plugin recipes
+        Iterator<Recipe> itr = getServer().recipeIterator();
+        while (itr.hasNext()) {
+            Recipe next = itr.next();
+            
+            if (!(next instanceof Keyed))
+                continue;
+            
+            if (((Keyed) next).getKey().getNamespace().equalsIgnoreCase(this.getName()))
+                itr.remove();
+        }
+        
+        loadConfig();
         
         return true;
     }
