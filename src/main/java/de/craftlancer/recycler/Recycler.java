@@ -26,10 +26,6 @@ public class Recycler extends JavaPlugin {
     
     public static final Permission WILDCARD_PERMISSION = new Permission("recycler.item.*", PermissionDefault.FALSE);
     
-    // used to let MC know, that a recipe accepts all data
-    // this is implementation specific and may cause problems in older or future versions!
-    public static final int MATCH_ALL_DATA = 32767;
-    
     private Map<Material, Recyclable> map = new EnumMap<>(Material.class);
     private boolean preventHoppers = true;
     

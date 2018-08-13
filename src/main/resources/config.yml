@@ -6,11 +6,15 @@ general:
 # Recipes
 #
 #  diamond_pickaxe:         # unique key, can be anything
-#    input: DIAMOND_PICKAXE # Material to smelt, for names see https://hub.spigotmc.org/stash/projects/SPIGOT/repos/bukkit/browse/src/main/java/org/bukkit/Material.java
+#    input: DIAMOND_PICKAXE # Material to smelt, for names see 
+                            # https://hub.spigotmc.org/stash/projects/SPIGOT/repos/bukkit/browse/src/main/java/org/bukkit/Material.java
 #    result: DIAMOND        # Smelting result item
 #    resultamount: 3        # number of result items per smelted input
 #    extradura: 0           # extra durability for amount calculation
-#    calcdura: true         # whether the resulting amount should be calculated based on item damage, formula: rewardamount * (input.maxDurability + extradura - input.damage) / input.maxDurability
+#    calcdura: true         # whether the resulting amount should be calculated 
+                            # based on item damage, formula: 
+                            # reward = rewardamount * (input.maxDurability +
+                            # extradura - input.damage) / input.maxDurability
 #    burntime: 100          # the time the item burn in the oven in ticks (1/20th seconds)
 recipes:
   diamond_pickaxe:
